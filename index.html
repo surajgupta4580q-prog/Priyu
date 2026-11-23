@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#120811"><title>Priya, this is for you ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap');
+:root{--rose:#f5a9bd;--pale:#ffe8ed;--gold:#e6c89a;--ink:#120811;--muted:#d9c2cb}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--pale)}
+body{font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 50% 100%,#60243f 0%,#2a1425 42%,#120b18 78%,#09070e 100%)}
+#sky{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;box-shadow:0 0 9px #fff;animation:blink var(--speed) infinite alternate;opacity:var(--alpha)}
+@keyframes blink{to{opacity:.08;transform:scale(.45)}}
+.haze{position:absolute;width:75vw;height:75vw;left:12%;top:38%;border-radius:50%;background:#f47b9c18;filter:blur(85px);animation:float 14s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate(8vw,-7vh) scale(1.18)}}
+.petal{position:absolute;top:-8vh;color:#f3a2b9;opacity:.55;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(8vw,115vh) rotate(500deg);opacity:0}}
+#screens{height:100dvh;position:relative}
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:28px 25px 90px;opacity:0;visibility:hidden;transform:translateY(24px) scale(.98);transition:opacity .85s,transform .85s,visibility .85s;overflow-y:auto}
+.scene.active{opacity:1;visibility:visible;transform:none}
+.kicker{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:.96;margin:0}
+h1{font-size:clamp(76px,17vw,132px)}h2{font-size:clamp(43px,10vw,76px);max-width:760px}
+.script{font-family:'Great Vibes',cursive;color:var(--rose);font-weight:400}
+.glow{text-shadow:0 0 22px #ff9bbd88,0 0 65px #ff7aa344}
+p{font-size:clamp(15px,3.7vw,18px);line-height:1.85;color:var(--muted);font-weight:300;max-width:540px;margin:17px auto}
+.goldline{display:flex;align-items:center;gap:12px;color:var(--gold);letter-spacing:3px;font-size:10px;margin:24px 0}
+.goldline:before,.goldline:after{content:"";height:1px;width:45px;background:linear-gradient(90deg,transparent,var(--gold))}
+.goldline:after{transform:rotate(180deg)}
+.btn{border:1px solid #f2b5c888;border-radius:99px;padding:14px 24px;background:linear-gradient(120deg,#f5bdcb,#d87998);color:#351724;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;box-shadow:0 0 34px #ec7e9d33;margin-top:17px;transition:.25s}
+.btn:active{transform:scale(.97)}.btn:hover{transform:translateY(-2px);box-shadow:0 0 42px #ec7e9d77}
+.btn.ghost{background:#ffffff0b;color:#ffe8ef;border-color:#ffffff40;box-shadow:none}
+.envelope-wrap{width:min(76vw,310px);height:218px;position:relative;margin:32px auto 8px;cursor:pointer;filter:drop-shadow(0 18px 28px #0008);perspective:900px}
+.envelope{position:absolute;inset:28px 0 0;background:linear-gradient(145deg,#d88ba7,#87405f);border-radius:6px}
+.envelope:after{content:"";position:absolute;inset:0;background:linear-gradient(35deg,transparent 49%,#f0b0c5 50%) left bottom/50% 100% no-repeat,linear-gradient(-35deg,transparent 49%,#e7a0b8 50%) right bottom/50% 100% no-repeat}
+.flap{position:absolute;top:28px;left:0;width:100%;height:60%;background:linear-gradient(145deg,#f4c0cf,#c77594);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s;z-index:4}
+.seal{position:absolute;z-index:5;top:94px;left:calc(50% - 22px);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#ffe5eb,#b84970);font-size:20px}
+.letter{position:absolute;z-index:2;left:7%;width:86%;height:155px;top:0;background:#fff0e9;color:#704253;padding:22px 12px;font:italic 20px 'Cormorant Garamond',serif;transition:transform 1s}
+.letter small{display:block;font:9px 'DM Sans';letter-spacing:2px;margin-bottom:12px;color:#a75b78}
+.envelope-wrap.open .flap{transform:rotateX(180deg);z-index:1}.envelope-wrap.open .letter{transform:translateY(-105px)}
+.card{border:1px solid #e8c99c55;background:linear-gradient(145deg,#ffffff12,#ffffff04);padding:22px 22px;max-width:530px;backdrop-filter:blur(12px);box-shadow:0 15px 55px #0004}
+.card p{font:400 clamp(20px,5vw,27px)/1.5 'Cormorant Garamond',serif;color:#ffedf1;margin:10px auto}
+.bigheart{font-size:72px;color:var(--rose);text-shadow:0 0 38px #ff80b8;animation:beat 2s infinite}
+@keyframes beat{50%{transform:scale(1.13)}}
+.orbit{font-size:22px;letter-spacing:18px;color:#f3bdcd;margin:18px 0}
+.sig{font:38px 'Great Vibes',cursive;color:var(--rose);margin-top:13px}
+#music{position:fixed;z-index:30;right:15px;top:max(14px,env(safe-area-inset-top));border:1px solid #ffffff35;background:#1b101caa;color:#ffe8ef;border-radius:30px;padding:9px 13px;font-size:10px;letter-spacing:1px;backdrop-filter:blur(10px)}
+#music span{color:var(--rose);margin-right:5px}
+.bottom{position:fixed;z-index:25;bottom:max(16px,env(safe-area-inset-bottom));left:0;right:0;display:flex;align-items:center;justify-content:center;gap:16px}
+.nav{background:none;border:0;color:#e9cbd7;font-size:10px;letter-spacing:2px;padding:10px;cursor:pointer}
+.dots{display:flex;gap:7px}.dots i{width:4px;height:4px;background:#ffffff40;border-radius:50%}.dots i.on{background:var(--rose);box-shadow:0 0 9px var(--rose);transform:scale(1.5)}
+.tiny{font-size:9px;letter-spacing:2px;color:#bca4b3;margin-top:14px}
+@media(max-height:680px){.scene{padding-top:12px;padding-bottom:75px}.kicker{margin-bottom:10px}.goldline{margin:12px}.envelope-wrap{transform:scale(.8);margin:-3px auto}.bigheart{font-size:52px}p{margin:10px auto}.btn{margin-top:10px;padding:12px 20px}}
+
+.secret-box{width:min(88vw,500px);border:1px solid #e9b6c866;background:linear-gradient(145deg,#ffffff12,#ffffff04);padding:22px 20px;margin:15px auto;backdrop-filter:blur(12px);box-shadow:0 18px 55px #0004}
+.secret-line{font:italic clamp(22px,5.4vw,30px)/1.45 'Cormorant Garamond',serif;color:#ffeaf0;min-height:76px;display:grid;place-items:center}
+.reveal{border:1px solid #e9b6c855;background:#ffffff0b;color:#f9dce6;border-radius:50px;padding:11px 14px;font-size:10px;letter-spacing:1px;margin:5px}
+.breath{font:italic 21px 'Cormorant Garamond',serif;color:#f4b4c7;margin-top:10px}
+
+#typewriter{font-size:clamp(20px,4.8vw,26px);line-height:1.5;white-space:pre-wrap}
+</style></head>
+<body>
+<div id="sky"><div class="haze"></div></div>
+<audio id="song" src="music.mp3" preload="auto" loop></audio>
+<button id="music" onclick="toggleMusic()"><span>♫</span><b id="musicLabel">MUSIC OFF</b></button>
+<div id="screens">
+<section class="scene active">
+ <div class="kicker">a little secret, wrapped in stardust</div>
+ <div class="script" style="font-size:clamp(31px,8vw,48px)">For the one who makes my heart smile</div>
+ <h1 class="glow">Priya<span style="color:#f5a9bd">.</span></h1>
+ <div class="goldline">24 · 11 · 2026</div>
+ <p>Suno na, madam… tumhare liye kuch banaya hai. Isse jaldi-jaldi mat dekhna. Har page mein thoda sa dil rakha hai. ♡</p>
+ <button class="btn" onclick="startAndGo(1)">Come a little closer ✧</button>
+</section>
+<section class="scene">
+ <div class="kicker">something sealed with a little affection</div>
+ <h2 class="script glow" style="font-size:clamp(53px,12vw,82px)">Ek khat… sirf tumhare naam</h2>
+ <p>Screen ke us paar ho, phir bhi kuch baatein tum tak pahunchani thi.</p>
+ <div class="envelope-wrap" id="env" onclick="openLetter()">
+  <div class="letter"><small>DEAR PRIYA ♡</small>Kuch log bas milte nahi… yaad reh jaate hain.</div>
+  <div class="envelope"></div><div class="flap"></div><div class="seal">♥</div>
+ </div>
+ <div class="tiny">TAP THE ENVELOPE TO OPEN</div>
+ <button class="btn" onclick="go(2)">Read my heart ♡</button>
+</section>
+<section class="scene">
+ <div class="kicker">dil se, bina kisi filter ke</div>
+ <h2>Priya, ek baat kahun?</h2>
+ <div class="card">
+  <p>Tumhari smile mein kuch toh jaadu hai… bina kuch kiye bhi mood achha kar deti ho.</p>
+  <p>Kabhi kabhi sochta hoon, itni pyaari baatein karna aur itna effortlessly cute hona… tumhari aadat hai ya mujhe tang karne ka plan? ❤️</p>
+ </div>
+ <button class="btn" onclick="go(3)">Aur sunogi? ♡</button>
+</section>
+<section class="scene">
+ <div class="kicker">a tiny confession</div>
+ <div class="bigheart">♡</div>
+ <h2 class="script glow" style="font-size:clamp(52px,12vw,88px)">Tum khaas ho</h2>
+ <p>Honestly, tumse baat karte waqt waqt thoda jaldi guzar jaata hai. Aur tumhara naam screen par aaye toh smile apne aap aa jaati hai. Itna toh banta hai na, birthday girl? 😉</p>
+ <div class="orbit">✧ ♡ ✧</div>
+ <button class="btn" onclick="go(4)">One more little wish…</button>
+</section>
+<section class="scene">
+ <div class="kicker">meri taraf se tumhare liye</div>
+ <h2>May your wishes<br>find their way <span class="script glow">home.</span></h2>
+ <p>Iss naye saal mein tumhe endless happiness mile, tumhare saare dreams poore hon, aur har din tumhe yaad dilaye ki tum kitni precious ho.</p>
+ <div class="goldline">YOU DESERVE ALL THE MAGIC</div>
+ <button class="btn" onclick="go(5)">The final surprise ✨</button>
+</section>
+<section class="scene">
+ <div class="kicker">three little things I hope you never forget</div>
+ <h2>Can I tell you<br><span class="script glow">something?</span></h2>
+ <p>In case you ever forget how lovely you are, tap these little notes. I saved them just for you.</p>
+ <div style="max-width:520px">
+  <button class="reveal" onclick="showReason(0)">01 · Your smile</button>
+  <button class="reveal" onclick="showReason(1)">02 · Your vibe</button>
+  <button class="reveal" onclick="showReason(2)">03 · Just you</button>
+ </div>
+ <div class="secret-box"><div class="secret-line" id="reasonText">Choose a little note above… ♡</div></div>
+ <div class="breath">A little reminder, whenever you need one.</div>
+ <button class="btn" onclick="go(6)">Keep this close ♡</button>
+</section>
+<section class="scene">
+ <div class="kicker">a tiny secret, just between these lines</div>
+ <div class="bigheart">♡</div>
+ <h2 class="script glow" style="font-size:clamp(54px,12vw,86px)">One last secret…</h2>
+ <p>There's one more message waiting. No rush. Tap when you're ready.</p>
+ <button class="btn" id="secretButton" onclick="unlockSecret()">Unlock my secret note ✨</button>
+ <div class="secret-box" id="secretNote" style="display:none">
+  <div class="secret-line">Agar kabhi tumhara din thoda sa off ho, toh yaad rakhna… tumhari smile kisi ke liye genuinely special hai. Aur haan, tumhari thodi si nakhrebaazi bhi cute hai. ❤️</div>
+ </div>
+ <div class="tiny">NO PASSWORD NEEDED — JUST A LITTLE HEART</div>
+ <button class="btn ghost" onclick="go(7)">One more little moment</button>
+</section>
+<section class="scene" id="hereScene">
+ <div class="kicker">a little daydream, just for a moment</div>
+ <div class="script glow" style="font-size:clamp(48px,11vw,78px)">If you were here right now…</div>
+ <div class="secret-box" style="min-height:190px;display:flex;align-items:center;justify-content:center">
+  <div class="secret-line" id="typewriter" aria-live="polite">Tap below… ♡</div>
+ </div>
+ <p>Bas ek chhota sa khayal… no pressure, just a little sweetness for your birthday.</p>
+ <button class="btn" onclick="startTypewriter()">Read this little daydream ♡</button>
+ <button class="btn ghost" onclick="go(8)">And now, your birthday wish ✨</button>
+</section>
+<section class="scene">
+ <div class="kicker">the whole universe is celebrating you</div>
+ <div class="bigheart">♥</div>
+ <div class="script glow" style="font-size:clamp(57px,13vw,92px)">Happy Birthday</div>
+ <h2 style="font-size:clamp(38px,9vw,62px)">Priya</h2>
+ <p>Aaj bas itna yaad rakhna… tumhari hasi bahut khoobsurat hai, use kabhi khona mat. Aur haan, aaj extra pampering allowed hai. Birthday hai tumhara, after all. ❤️</p>
+ <div class="sig">Yours, Suraj ♡</div>
+ <div class="tiny">24 NOVEMBER 2026 · MADE WITH A LITTLE EXTRA HEART</div>
+ <button class="btn ghost" onclick="go(0)">Start our little story again ↺</button>
+</section>
+</div>
+<div class="bottom"><button class="nav" id="back" onclick="go(index-1)">← BACK</button><div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button class="nav" id="next" onclick="go(index+1)">NEXT →</button></div>
+<script>
+let index=0;const scenes=[...document.querySelectorAll('.scene')],dots=[...document.querySelectorAll('.dots i')],song=document.getElementById('song');
+function go(n){if(n<0||n>=scenes.length)return;scenes[index].classList.remove('active');index=n;scenes[index].classList.add('active');dots.forEach((d,i)=>d.classList.toggle('on',i===index));document.getElementById('back').style.visibility=index===0?'hidden':'visible';document.getElementById('next').style.visibility=index===scenes.length-1?'hidden':'visible';if(index===7)startTypewriter()}
+async function startAndGo(n){try{await song.play();document.getElementById('musicLabel').textContent='MUSIC ON'}catch(e){}go(n)}
+async function toggleMusic(){if(song.paused){try{await song.play();document.getElementById('musicLabel').textContent='MUSIC ON'}catch(e){document.getElementById('musicLabel').textContent='TAP AGAIN'}}else{song.pause();document.getElementById('musicLabel').textContent='MUSIC OFF'}}
+function openLetter(){document.getElementById('env').classList.add('open')}
+
+function showReason(i){
+ const notes=[
+  "Tumhari smile… ek chhoti si smile se poora mood badal sakta hai. Keep smiling, birthday girl. ♡",
+  "Tumhari baaton mein ek alag si warmth hai. Tumse baat karke ordinary din bhi thoda special lagta hai.",
+  "Because you are you, Priya. Kisi aur jaisa banne ki zaroorat hi nahi. Exactly aisi hi rehna. ❤️"
+ ];
+ document.getElementById('reasonText').textContent=notes[i];
+}
+
+const daydream = "Agar tum yahan hoti na, toh shayad main sabse pehle tumhe ek warm si smile deta… phir kehta, aaj kisi cheez ki tension nahi. Aaj sirf tumhara din hai. Thodi si hasi, thodi si masti, tumhari favourite baatein… aur ek lambi si wish ki tum hamesha khush raho. Kaash tum dekh paati ki tumhari khushi kitni pyaari lagti hai. ♡";
+let typingTimer=null;
+function startTypewriter(){
+ const el=document.getElementById('typewriter');
+ if(typingTimer)clearInterval(typingTimer);
+ el.textContent="";
+ let i=0;
+ typingTimer=setInterval(()=>{
+  el.textContent=daydream.slice(0,++i);
+  if(i>=daydream.length)clearInterval(typingTimer);
+ },38);
+}
+function unlockSecret(){
+ document.getElementById('secretNote').style.display='block';
+ document.getElementById('secretButton').textContent='A little note, just for you ♡';
+ document.getElementById('secretButton').disabled=true;
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(index+1);if(e.key==='ArrowLeft')go(index-1)});
+const sky=document.getElementById('sky');for(let i=0;i<105;i++){let s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.setProperty('--speed',(2+Math.random()*5)+'s');s.style.setProperty('--alpha',(.2+Math.random()*.7));sky.appendChild(s)}
+for(let i=0;i<19;i++){let p=document.createElement('span');p.className='petal';p.textContent=['✧','❀','♡','·'][i%4];p.style.left=Math.random()*100+'%';p.style.animationDuration=(13+Math.random()*17)+'s';p.style.animationDelay=(-Math.random()*25)+'s';p.style.fontSize=(10+Math.random()*14)+'px';sky.appendChild(p)}
+document.getElementById('back').style.visibility='hidden';
+</script></body></html>
